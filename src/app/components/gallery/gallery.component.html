@@ -1,0 +1,41 @@
+<div *ngIf="showGrid" class="row bg-dark text-light mx-4 mt-2 p-4 rounded"> 
+    <div class="col-md-4">
+        <img class="w-50 rounded-circle d-block mx-auto my-2 mb-4" src="../../../assets/Images/2.jpg" alt="">
+    </div>
+    <div class="col-md-8 d-flex align-items-center">
+        <p class="text-center lead">Elegance is the beauty of heart that never fades ... Am an eccentric spirit, enjoying each and every vibe I get through, compassion and love are my quill and color which I spread with paper and people! 
+        </p>
+    </div>
+</div>
+
+<div *ngIf="imageList" class="mt-5">
+    <div *ngIf="showGrid" class="row m-1">
+        <div class="col-md-3 p-2" *ngFor="let i of viewImageList">
+            <div class="card bg-dark w-100">
+                <img [src]="i.imageUrl" class="img-fluid d-block mx-auto rounded my-4 w-75">
+                <div class="card-body">
+                    <p class="text-secondary text-center m-2 text-light lead">{{i.desc}}</p>
+                    <button class="btn btn-outline-light d-block mx-auto rounded-pill w-75 mt-4" (click)="viewDesc(i.imageUrl)">View</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div *ngIf="!showGrid" class="m-2">
+        <div class="row">
+            <div class="col-xs-1 col-md-3 col-lg-3"></div>
+            <div class="col-xs-10 col-md-6 col-lg-6">
+                <div class="card bg-dark w-100 mb-4 dblock mx-auto ">
+                    <img [src]="viewImageUrl" class="img-fluid d-block mx-auto rounded my-4 w-75">
+                    <div class="card-body">
+                        <p class="text-secondary text-center m-2 text-light">{{viewImageDesc}}</p>
+                        <button class="btn btn-outline-light d-block mx-auto rounded-pill w-50 mt-4" (click)="goBack()">Go Back</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-1 col-md-3 col-lg-3"></div>
+        </div>
+    </div>
+</div>

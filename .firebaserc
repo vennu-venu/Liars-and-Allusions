@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "liars-and-allusions-87848": {
+      "hosting": {
+        "LiarsAndAllusions": [
+          "liars-and-allusions-87848"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "liars-and-allusions-87848"
+  }
+}

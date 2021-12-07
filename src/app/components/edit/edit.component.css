@@ -1,0 +1,18 @@
+.hl:hover{
+    background-color:#6c757d;
+}
+.hl:active{
+    background-color:#6c757d;
+}
+.bg-darker{
+    background-color: black;
+}
+input{
+    border: none;
+}
+.f{
+    font-weight: 400;
+}
+#of{
+    overflow:hidden;
+}

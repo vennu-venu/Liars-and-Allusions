@@ -1,0 +1,22 @@
+.bg-darker{
+    background-color: black;
+}
+.hl:hover{
+    background-color:#6c757d;
+}
+.hl:active{
+    background-color:#6c757d;
+}
+.f{
+    font-weight:500;
+}
+.fs{
+    font-weight:200;
+}
+.active{
+    background-color: white;
+    color: black;
+}
+.active h5{
+    color : black;
+}

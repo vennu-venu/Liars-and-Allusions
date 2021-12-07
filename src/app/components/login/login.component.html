@@ -1,0 +1,24 @@
+<div id="of">
+    <div class="row mt-2">
+        <div class="col-md-6 pb-5 pr-5">
+            <img class="w-75 mx-auto d-block rounded mt-2" src="../../assets/Images/2.jpg" alt="loginImage"> 
+        </div>
+        <div class="col-md-6">
+            <h1 class="text-secondary text-center display-4 m-5 f">Log<span class="text-light">in</span></h1>
+            <form [formGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
+                <div class="form-floating m-5 w-50 d-block mx-auto">
+                    <input  type="text" required formControlName="username" class="form-control bg-darker text-light border-bottom border-light" autocomplete="false" id="floatingInputGrid1">
+                    <label for="floatingInputGrid1" class="text-light"><h6>Username</h6></label>
+                    <div *ngIf="isSubmitted && formControls.username.errors?.required" class="text-danger"><small>This field is required</small></div>
+                </div>
+                <div class="form-floating m-5 w-50 d-block mx-auto">
+                    <input type="password" required formControlName="password" class="form-control bg-darker text-light border-bottom border-light" autocomplete="false" id="floatingInputGrid2">
+                    <label for="floatingInputGrid2"  class="text-light"><h6>Password</h6></label>
+                    <div *ngIf="isSubmitted && formControls.password.errors?.required" class="text-danger"><small>This field is required</small></div>
+                </div>
+                <div *ngIf="isSubmitted && isWrongCred" class="text-danger text-center"><small>Wrong Credentials</small></div>
+                <button type="submit" class="btn btn-outline-light d-block mx-auto my-5 w-50 p-3 rounded-pill"><b>Login</b></button>
+            </form>
+        </div>
+    </div>
+</div>

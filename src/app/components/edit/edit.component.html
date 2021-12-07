@@ -1,0 +1,32 @@
+<div *ngIf="imageList" class="mt-5">
+    <div *ngIf="!editPageView" class="row m-1">
+        <div class="col-md-3 p-2" *ngFor="let i of viewImageList">
+            <div class="card bg-dark w-100">
+                <img [src]="i.imageUrl" class="img-fluid d-block mx-auto rounded my-4 w-75">
+                <div class="card-body">
+                    <p class="text-secondary text-center m-2 text-light">{{i.desc}}</p>
+                    <button class="btn btn-outline-light d-block mx-auto rounded-pill w-75 mt-4" (click)="edit(i.$key ,i.imageUrl)">Edit</button>
+                    <button class="btn btn-outline-light d-block mx-auto rounded-pill w-75 mt-2" (click)="delete(i.$key, i.imageUrl)">Delete</button>
+                </div>
+              </div>
+        </div>
+    </div>
+    <div *ngIf="editPageView" class="row m-2">
+        <div class="col-md-6">
+            <img [src]="imageUrl" alt="" class="w-50 img-fluid rounded d-block mx-auto mt-4">
+        </div>
+        <div class="col-md-6">
+            <p class="text-light text-center display-6 mt-4">Edit <span class="text-secondary">Description</span></p>
+            <form [formGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
+                <div class="my-5 mx-auto w-75">
+                    <p class="text-light bg-dark p-4 m-4 text-center"><b>Previous Description : <br><br></b>{{imageDesc}}</p>
+                    <label class="form-label text-light">Description</label>
+                    <textarea class="form-control bg-darker text-light border-bottom border-light" required formControlName="desc" id="floatingInputGrid2" rows="4" placeholder="New Description"></textarea>
+                    <div *ngIf="isSubmitted && formControls.desc.errors?.required" class="text-danger"><small>This field is required</small></div>
+                </div>
+                <button type="submit" class="btn btn-outline-light d-block mx-auto rounded-pill w-50 mt-2 p-3">Save changes</button>
+                <button class="btn btn-outline-light d-block mx-auto rounded-pill w-50 mt-2 p-3" (click) = "goBack()">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>

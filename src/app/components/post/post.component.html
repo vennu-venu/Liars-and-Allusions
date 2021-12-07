@@ -1,0 +1,26 @@
+<div class="row mt-2">
+    <div class="col-md-6">
+        <img class="w-100 mx-auto d-block rounded mt-4" src="../../assets/Images/1.jpg" alt="loginImage">
+    </div>
+    <div class="col-md-6">
+        <p class="text-light text-center display-6 mt-4">Upload new <span class="text-secondary">Wallpaper</span></p>
+        <form [formGroup]="formTemplate" (submit)="onSubmit(formTemplate.value)">
+            <div class="mt-5 mx-auto w-75">
+                <label class="form-label text-light"><h6>Add Image</h6></label>
+                <input type="file" accept="image/*" (change)="onFileSelect($event)" formControlName="imageUrl" from required class="form-control bg-darker text-light border-bottom border-light">
+                <div *ngIf="isSubmitted && formControls.imageUrl.errors?.required" class="text-danger"><small>This field is required</small></div>
+            </div>
+            <div *ngIf = "imageData">
+                <img class="w-50 mx-auto d-block mt-4" [src]="imageData" [alt]="">
+            </div>
+            <div class="my-5 mx-auto w-75">
+                <label class="form-label text-light">Description</label>
+                <textarea class="form-control bg-darker text-light border-bottom border-light" required formControlName="desc" id="floatingInputGrid2" rows="4" placeholder="Discription of the Art.."></textarea>
+                <div *ngIf="isSubmitted && formControls.desc.errors?.required" class="text-danger"><small>This field is required</small></div>
+            </div>
+            <button type="submit" class="btn btn-outline-light d-block mx-auto mt-4 w-50 p-3 rounded-pill"><b>Upload</b></button>
+        </form>
+        <button class="btn btn-outline-light d-block mx-auto my-4 w-50 p-3 rounded-pill" (click)="edit()" href=""><b>Edit Posts</b></button>
+        <button class="btn btn-outline-light d-block mx-auto my-4 w-50 p-3 rounded-pill" (click)="logout()" href=""><b>Logout</b></button>
+    </div>
+</div>
